@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.api.v1.endpoints import router as arch_bytes_router
+from src.api.v1.endpoints.arch_bytes_generator import router as arch_bytes_router
 from src.core.logging import settings
 
 app = FastAPI(title="Software Architecture Information Generator", version="0.1.0")
