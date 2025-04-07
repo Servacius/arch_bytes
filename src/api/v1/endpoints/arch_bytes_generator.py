@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from src.models.schemas import TopicRequest
-from src.services.gemini_service import generate_quiz
+from src.services.gemini_service import generate_quiz_content
 from src.core.logging import logger
 
 
@@ -9,7 +9,7 @@ router = APIRouter()
 @router.post("/generate-quiz")
 async def generate_quiz(request: TopicRequest):
     try:
-        quiz = generate_quiz(request.topic)
+        quiz = generate_quiz_content(request.topic)
         return {"quiz": quiz}
     except Exception as e:
         logger.error(f"An error occurred when generating quizzes: {e}")
