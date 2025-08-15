@@ -5,6 +5,7 @@ genai.configure(api_key=settings.geminiai_api_key)
 
 def generate_quiz_content(topic: str):
     model = genai.GenerativeModel('gemini-2.0-flash-001')
-    prompt = f"Generate a multiple-choice quiz like bite-sized information with 5 questions on the topic of {topic} in Software Architecture. Include the correct answers and explanations on each quizzes."
+    prompt = f"Generate 5 bite-sized information with the topic of {topic} in software architecturing and developing. Please include the explanations on each bite sized information like the insight behind the information. And add an example to illustrate and to make the explanation make sense."
+    # prompt = f"Generate a multiple-choice quiz like bite-sized information with 5 questions on the topic of {topic} in Software Architecture. Include the correct answers and explanations on each quizzes."
     response = model.generate_content(prompt)
     return response.text
